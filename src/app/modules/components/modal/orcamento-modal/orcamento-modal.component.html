@@ -1,0 +1,21 @@
+<mat-dialog-content>
+  <div *ngIf="data">
+    <h3>Orçamento Detalhado:</h3>
+    <div class="container-orcamento" *ngFor="let item of data.servicos" >
+      <div>{{ item.descricao }}:</div><div> R$ {{ item.custo.toFixed(2) }} </div>
+    </div>
+    <div>
+      <strong style="margin-left: auto; margin-top: 10px;">Total: R$ {{ data.total.toFixed(2) }}</strong>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <section class="sct-modal">
+        <div class="btn-modal" class="example-button-row btn-modal">
+          <button mat-raised-button (click)="downloadPDF()">Download PDF</button>
+        </div>
+        <button class="btn-modal" mat-flat-button (click)="close()">Fechar</button>
+      </section>
+  
+  
+</mat-dialog-actions>

@@ -1,0 +1,45 @@
+:host{
+
+    .header{
+        position: fixed; /* Faz com que o header fique fixo na tela */
+        top: 0; /* Posiciona no topo da página */
+        left: 0; /* Faz com que o header comece da borda esquerda */
+        width: 100%; /* Garante que o header ocupe toda a largura da tela */
+        z-index: 1000; /* Garante que o header fique acima de outros elementos */
+
+        padding: 10px;
+        background: var(--primary);
+        height: 50px;
+    
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        text-align: center;
+    
+        align-items: center;
+        justify-content: center;
+    
+        img{
+           margin: 0 5% 0 auto;
+        }
+        
+       
+    }
+
+    .header h2 {
+        color: var(--white);
+        flex-grow: 1;
+        margin: auto;
+        font-size: 3vw; /* Ajusta o tamanho do texto de acordo com a largura da tela */
+        white-space: nowrap; /* Impede quebra de linha no texto */
+        overflow: hidden; /* Esconde o texto que ultrapassar o container */
+        text-overflow: ellipsis; /* Adiciona "..." se o texto for cortado */
+    }
+
+    @media (max-width: 600px) {
+        .header h2 {
+            font-size: 5vw; /* Ajusta o tamanho do texto de acordo com a largura da tela */
+
+        }
+    }
+}

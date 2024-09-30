@@ -1,0 +1,23 @@
+:host{
+
+.container-orcamento{
+
+    margin-bottom: 5px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+h3{
+    font-size: 3vh;
+}
+.sct-modal{
+   display: flex;
+   flex-direction: row;
+    .btn-modal{
+        margin-left: 8px;
+    }
+}
+
+}

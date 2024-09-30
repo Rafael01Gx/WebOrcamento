@@ -1,0 +1,390 @@
+<div class="example-input-wrapper" style="display: none">
+  <label for="duration">Animation duration:</label>
+  <input id="duration" value="200" type="number" min="0" step="100" #duration />
+</div>
+
+<mat-vertical-stepper
+  [linear]="false"
+  #stepper
+  [animationDuration]="duration.value"
+>
+<mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Área de lixamento da parede</ng-template>
+      <mat-form-field style="width: 100%; margin-top: 10px;">
+        <input type="number"
+          matInput
+          placeholder="Informe a área total para lixar parede (em m²):"
+          formControlName="firstCtrl"
+          inputmode="decimal"
+          pattern="^[0-9]+(,[0-9]{1,2})?$"
+          min="0"
+          [(ngModel)]="area_parede"
+        />
+       
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </form>
+  </mat-step>
+  
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Área para aplicação de massa corrida</ng-template>
+      <mat-form-field style="width: 100%; margin-top: 10px;">
+        <input type="number"
+          matInput
+          placeholder="Informe a área total para aplicação de massa corrida (em m²):"
+          formControlName="secondCtrl"
+          [(ngModel)]="area_massa"
+          inputmode="decimal"
+          pattern="^[0-9]+(,[0-9]{1,2})?$"
+          min="0"
+        />
+
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Voltar</button>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </form>
+  </mat-step>
+  
+  <mat-step [stepControl]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>Área para aplicação de gesso</ng-template>
+      <mat-form-field style="width: 100%; margin-top: 10px;">
+        <input type="number"
+          matInput
+          placeholder="Informe a área total para aplicação de gesso (em m²):"
+          formControlName="thirdCtrl"
+          [(ngModel)]="area_gesso"
+          inputmode="decimal"
+          pattern="^[0-9]+(,[0-9]{1,2})?$"
+          min="0"
+        />
+        
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Voltar</button>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </form>
+  </mat-step>
+  
+  <mat-step [stepControl]="fourthFormGroup">
+    <form [formGroup]="fourthFormGroup">
+      <ng-template matStepLabel>Área para lixar massa corrida</ng-template>
+      <mat-form-field style="width: 100%; margin-top: 10px;">
+        <input type="number"
+          matInput
+          placeholder="Informe a área total para lixar a massa corrida (em m²):"
+          formControlName="fourthCtrl"
+          [(ngModel)]="area_lixar_massa"
+          inputmode="decimal"
+          pattern="^[0-9]+(,[0-9]{1,2})?$"
+          min="0"
+        />
+
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Voltar</button>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </form>
+  </mat-step>
+  
+  <mat-step [stepControl]="fifthFormGroup">
+    <form [formGroup]="fifthFormGroup">
+      <ng-template matStepLabel>Área para lixar gesso</ng-template>
+      <mat-form-field style="width: 100%; margin-top: 10px;">
+        <input type="number"
+          matInput
+          placeholder="Informe a área total para lixar o gesso (em m²):"
+          formControlName="fifthCtrl"
+          [(ngModel)]="area_lixar_gesso"
+          inputmode="decimal"
+          pattern="^[0-9]+(,[0-9]{1,2})?$"
+          min="0"
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Voltar</button>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </form>
+  </mat-step>
+  
+  <mat-step [stepControl]="sixthFormGroup">
+    <form [formGroup]="sixthFormGroup">
+      <ng-template matStepLabel>Área para aplicação de selador</ng-template>
+      <mat-form-field style="width: 100%; margin-top: 10px;">
+        <input type="number"
+          matInput
+          placeholder="Informe a área total para aplicação de selador (em m²):"
+          formControlName="sixthCtrl"
+          [(ngModel)]="area_selador"
+          inputmode="decimal"
+          pattern="^[0-9]+(,[0-9]{1,2})?$"
+          min="0"
+        />
+        
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Voltar</button>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </form>
+  </mat-step>
+  
+  <mat-step [stepControl]="seventhFormGroup">
+    <form [formGroup]="seventhFormGroup">
+      <ng-template matStepLabel>Aplicação direta no gesso</ng-template>
+      <mat-form-field style="width: 100%; margin-top: 10px;">
+        <input type="number"
+          matInput
+          placeholder="Informe a área total para aplicação direta no gesso (em m²):"
+          formControlName="seventhCtrl"
+          [(ngModel)]="area_gesso_direto"
+          inputmode="decimal"
+          pattern="^[0-9]+(,[0-9]{1,2})?$"
+          min="0"
+        />
+       
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Voltar</button>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </form>
+  </mat-step>
+  
+  <mat-step [stepControl]="eighthFormGroup">
+    <form [formGroup]="eighthFormGroup">
+      <ng-template matStepLabel>Área para aplicação de 2 demãos de tinta</ng-template>
+      <mat-form-field style="width: 100%; margin-top: 10px;">
+        <input type="number"
+          matInput
+          placeholder="Informe a área total para aplicação de 2 demãos de tinta (em m²):"
+          formControlName="eighthCtrl"
+          [(ngModel)]="area_tinta"
+          inputmode="decimal"
+          pattern="^[0-9]+(,[0-9]{1,2})?$"
+          min="0"
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Voltar</button>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </form>
+  </mat-step>
+  
+  <mat-step [stepControl]="ninthFormGroup">
+    <form [formGroup]="ninthFormGroup">
+      <ng-template matStepLabel>Laquear portas</ng-template>
+      <mat-form-field style="width: 100%; margin-top: 10px;">
+        <input type="number"
+          matInput
+          placeholder="Informe a área total para laquear as portas (em m²):"
+          formControlName="ninthCtrl"
+          [(ngModel)]="area_laquear_portas"
+          inputmode="decimal"
+          pattern="^[0-9]+(,[0-9]{1,2})?$"
+          min="0"
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Voltar</button>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </form>
+  </mat-step>
+  
+  <mat-step [stepControl]="tenthFormGroup">
+    <form [formGroup]="tenthFormGroup">
+      <ng-template matStepLabel>Pintura dos portões</ng-template>
+      <mat-form-field style="width: 100%; margin-top: 10px;">
+        <input type="number"
+          matInput
+          placeholder="Informe a área total para pintura dos portões (em m²):"
+          formControlName="tenthCtrl"
+          [(ngModel)]="area_portoes"
+          inputmode="decimal"
+          pattern="^[0-9]+(,[0-9]{1,2})?$"
+          min="0"
+        />
+
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Voltar</button>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </form>
+  </mat-step>
+  
+  <mat-step [stepControl]="eleventhFormGroup">
+    <form [formGroup]="eleventhFormGroup">
+      <ng-template matStepLabel>Aplicação de verniz</ng-template>
+      <mat-form-field style="width: 100%; margin-top: 10px;">
+        <input type="number"
+          matInput
+          placeholder="Informe a área total para aplicação de verniz (em m²):"
+          formControlName="eleventhCtrl"
+          [(ngModel)]="area_verniz"
+          inputmode="decimal"
+          pattern="^[0-9]+(,[0-9]{1,2})?$"
+          min="0"
+        />
+
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Voltar</button>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </form>
+  </mat-step>
+  
+  <mat-step [stepControl]="twelfthFormGroup">
+    <form [formGroup]="twelfthFormGroup">
+      <ng-template matStepLabel>Textura com rolo</ng-template>
+      <mat-form-field style="width: 100%; margin-top: 10px;">
+        <input type="number"
+          matInput
+          placeholder="Informe a área total para aplicação de textura com rolo (em m²):"
+          formControlName="twelfthCtrl"
+          [(ngModel)]="area_textura_rolo"
+          inputmode="decimal"
+          pattern="^[0-9]+(,[0-9]{1,2})?$"
+          min="0"
+        />
+
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Voltar</button>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </form>
+  </mat-step>
+  
+  <mat-step [stepControl]="thirteenthFormGroup">
+    <form [formGroup]="thirteenthFormGroup">
+      <ng-template matStepLabel>Cimento queimado</ng-template>
+      <mat-form-field style="width: 100%; margin-top: 10px;">
+        <input type="number"
+          matInput
+          placeholder="Informe a área total para aplicação de cimento queimado (em m²):"
+          formControlName="thirteenthCtrl"
+          [(ngModel)]="area_cimento_quimado"
+          inputmode="decimal"
+          pattern="^[0-9]+(,[0-9]{1,2})?$"
+          min="0"
+        />
+
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Voltar</button>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </form>
+  </mat-step>
+  
+  <mat-step [stepControl]="fourteenthFormGroup">
+    <form [formGroup]="fourteenthFormGroup">
+      <ng-template matStepLabel>Textura rústica (graffiato)</ng-template>
+      <mat-form-field style="width: 100%; margin-top: 10px;">
+        <input type="number"
+          matInput
+          placeholder="Informe a área total para aplicação de textura rústica (graffiato) (em m²):"
+          formControlName="fourteenthCtrl"
+          [(ngModel)]="area_textura_rustica"
+          inputmode="decimal"
+          pattern="^[0-9]+(,[0-9]{1,2})?$" 
+          min="0"
+        />
+      </mat-form-field>
+
+      <mat-step [stepControl]="fifteenthFormGroup">
+        <form [formGroup]="fifteenthFormGroup">
+          <ng-template matStepLabel>Massa corrida acrílica</ng-template>
+          <mat-form-field style="width: 100%; margin-top: 10px;">
+            <input type="number"
+            [(ngModel)]="area_massa_corrida_acrilica"
+              matInput
+              placeholder="Informe a área total para aplicação de massa corrida acrílica (em m²):"
+              formControlName="fifteenthCtrl"
+              inputmode="decimal"
+              pattern="^[0-9]+(,[0-9]{1,2})?$"
+              min="0"
+            />
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Voltar</button>
+            <button mat-button matStepperNext>Próximo</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="sixteenthFormGroup">
+        <form [formGroup]="sixteenthFormGroup">
+          <ng-template matStepLabel>Número de Profissionais</ng-template>
+          <mat-form-field style="width: 100%; margin-top: 10px;">
+            <input type="number"
+            [(ngModel)]="num_profissionais"
+            [value]="num_profissionais"
+              matInput
+              placeholder="Informe o número de profissionais:"
+              formControlName="sixteenthCtrl"
+             min="0"
+            />
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Voltar</button>
+            <button mat-button matStepperNext>Próximo</button>
+          </div>
+        </form>
+      </mat-step>
+      
+      <mat-step [stepControl]="seventeenthFormGroup">
+        <form [formGroup]="seventeenthFormGroup">
+          <ng-template matStepLabel>Número de Ajudantes</ng-template>
+          <mat-form-field style="width: 100%; margin-top: 10px;">
+            <input type="number"
+            [(ngModel)]="num_ajudantes"
+              matInput
+              placeholder="Informe o número de ajudantes:"
+              formControlName="seventeenthCtrl"
+              min="0"
+            />
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Voltar</button>
+            <button mat-button matStepperNext>Próximo</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <div>
+        <button mat-button matStepperPrevious>Voltar</button>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </form>
+  </mat-step>
+  
+  
+  <mat-step>
+    <ng-template matStepLabel>Limpar</ng-template>
+
+  
+    <div>
+      <button mat-button matStepperPrevious>Voltar</button>
+      <button mat-button (click)="stepper.reset()">Limpar</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>
+<section>
+  <div class="btn-calcular" style="width: 100%;">
+    <button mat-flat-button (click)="calcularOrcamento()" style="width: 100%; border-radius: 0;">Calcular</button>
+  </div>
+</section>
